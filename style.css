@@ -1,0 +1,243 @@
+@font-face {
+    font-family: Roboto-Regular;
+    src: url(fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: Roboto-Bold;
+    src: url(fonts/Roboto-Bold.ttf);
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto-Regular;
+}
+
+body {
+    position: relative;
+    min-width: 100%;
+    width: 100%;
+    min-height: 100vh;
+}
+
+html {
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Roboto-Bold;
+}
+
+.newsletter {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: hsl(234, 29%, 20%);
+}
+
+.newsletter-content {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: " section1 section2";
+    padding: 1em;
+}
+
+.newsletter-content div:nth-child(1) {
+    border-radius: 1em 0 0 1em;
+}
+
+.newsletter-content div:nth-child(2) {
+    background-image: url(images/illustration-sign-up-desktop.svg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 1em;
+}
+
+.newsletter-content .section1 {
+    grid-area: section1;
+    padding: 2em 1.5em;
+}
+
+.newsletter-content .section1 h1 {
+    margin-bottom: .5em;
+}
+
+.newsletter-content .section1 p {
+    margin-bottom: .5em;
+}
+
+.newsletter-content .section1 ul {
+    list-style-image: url(images/icon-list.svg);
+    padding-left: 1.3em;
+}
+
+.newsletter-content .section1 ul li {
+    margin-bottom: .3em;
+}
+
+.subscribe {
+    margin-top: 1.5em;
+    padding-right: 1em;
+}
+
+.subscribe form {
+    display: flex;
+    flex-direction: column;
+}
+
+.subscribe form .email-head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subscribe form label {
+    color: #000;
+    margin-bottom: .9em;
+    font-size: .7rem;
+}
+
+.subscribe form span {
+    color: #ff0000;
+    font-size: .7rem;
+}
+
+.subscribe form #email {
+    background: #fff;
+    padding: 1em;
+    border-radius: .7em;
+    outline: none;
+    border: .1em solid #9294a0;
+    margin-bottom: 1em;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.subscribe form #email:hover {
+    border-color: #000;
+}
+
+::placeholder {
+    color: #9294a0;
+}
+
+.btn {
+    padding: 1em 0;
+    border-radius: .5em;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    background: #242742;
+    color: #fff;
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #ff6257;
+    box-shadow: 0 1em 5em #ff6257;
+}
+
+.newsletter-content .section2 {
+    grid-area: section2;
+}
+
+.message {
+    position: absolute;
+    width: 35%;
+    height: 70%;
+    background: #fff;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: .7em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2em;
+    box-shadow: 0 0 5em #333;
+    transition: .5s ease;
+}
+
+.message-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.message .check {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    background-image: url(images/icon-list.svg);
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 1em;
+}
+
+.message h1 {
+    margin-bottom: .5em;
+}
+
+.message p {
+    margin-bottom: 1.3em;
+}
+
+.message .message-email {
+    font-weight: 600;
+}
+
+::selection{
+    color: #fff;
+    background: #ff6257;
+}
+
+
+@media (max-width: 800px) {
+
+
+    @media (max-height: 800px) {
+        html {
+            font-size: 16px;
+        }
+
+        .newsletter-content {
+            width: 100%;
+            height: 100%;
+            grid-template-columns: 1fr;
+            grid-auto-rows: 1fr 1fr;
+            grid-template-areas: "section2" " section1";
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .newsletter-content div:nth-child(2) {
+            background-image: url(images/illustration-sign-up-mobile.svg);
+            border-radius: 0 0 1em 1em;
+        }
+        .message{
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+        }
+    }
+}

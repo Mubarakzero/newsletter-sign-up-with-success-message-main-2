@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newsletter-2</title>
+</head>
+
+<body>
+    <div class="newsletter">
+        <div class="newsletter-content" id="newsletter">
+            <div class="section section1">
+                <div class="section1-content">
+                    <h1>Stay updated!</h1>
+                    <p>Join 60,000+ product managers receiving monthly updates on:</p>
+                    <ul>
+                        <li>Product discovery and building what matters</li>
+                        <li>Measuring to ensure updates are a success</li>
+                        <li>And much more!</li>
+                    </ul>
+                    <div class="subscribe">
+                        <form id="form">
+                            <div class="email-head">
+                                <label for="email">Email address</label>
+                                <span id="email-validation-txt"></span>
+                            </div>
+                            <input type="email" id="email" placeholder="email@company.com">
+                            <input type="button" value="Subscribe to monthly newsletter" id="email-btn" class="btn"
+                                onclick="success()">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="section section2"></div>
+        </div>
+        <div class="message" id="message">
+            <div class="message-info">
+                <span class="check"></span>
+                <h1>Thanks for subscribing!</h1>
+                <p>A confirmation email has been sent. Please open it and click
+                    the button inside to confirm your subscription. </p>
+                <input type="button" value="Dismiss message" class="btn" onclick="dismiss()">
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        function success() {
+            var email = document.getElementById("email").value;
+            var email_sty = document.getElementById("email").style;
+            var form = document.getElementById("form");
+            var txt = document.getElementById("email-validation-txt");
+            var newsletter = document.getElementById("newsletter");
+            var message = document.getElementById("message");
+            var email_pattern = /^\w+@\w+\.[a-z]{2,3}$/;
+            if (email.match(email_pattern)) {
+                form.classList.add("valid")
+                form.classList.remove("invalid")
+                newsletter.style.display = "none";
+                message.style.transform = "translate(-50%, -50%) scale(1)";
+            }
+            else {
+                form.classList.remove("valid");
+                form.classList.add("invalid");
+                txt.innerHTML = "valid email required";
+                email_sty.borderColor = "#ff0000";
+                email_sty.background = "#ff000033";
+                return false;
+            }
+        }
+
+        function dismiss() {
+            var newsletter = document.getElementById("newsletter");
+            var message = document.getElementById("message");
+            newsletter.style.display = "grid";
+            message.style.transform = "translate(-50%, -50%) scale(0)"
+        }
+    </script>
+</body>
+
+</html>
